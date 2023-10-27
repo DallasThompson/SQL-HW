@@ -1,6 +1,6 @@
 # # SQL-HW
 
-Brief description of your project.
+
 
 ## Table of Contents
 
