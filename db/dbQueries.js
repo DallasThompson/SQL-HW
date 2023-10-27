@@ -50,8 +50,14 @@ const addEmployee = async (data, roleId, employeeId) => {
   );
   console.table(rows);
 }
-
-
+const updateEmployee = async (roleId, employeeId) => {
+  const connection = await connect();
+  const [rows] = await connection.execute(
+    `UPDATE employees Set role_id = ? WHERE id = ? `, 
+    [roleId, employeeId]
+  );
+  console.table(rows);
+}
 
 const createDepartmentDataHash = (rows) => {
   let hash = {};
@@ -104,4 +110,5 @@ module.exports = {
   createEmployeeDataHash,
   getEmployeeNames,
   addEmployee,
+  updateEmployee
 };

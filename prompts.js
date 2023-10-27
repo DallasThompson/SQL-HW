@@ -13,7 +13,7 @@ const displayStartUpQ = async () => {
         "Add a department.",
         "Add a role.",
         "Add an employee.",
-        "Update an employee role.",
+        "Update an employee.",
         "Exit.",
       ],
     },
@@ -137,6 +137,27 @@ const getEmployeeInfo = async (roleTitles, employeeNames) => {
   return answer;
 };
 
+const getUpdateEmployeeInfo = async (employeeNames, employeeRoles) => {
+  const answer = await inquirer.prompt([
+    {
+      type: "list",
+      name: "employeeList",
+      message: "Please select an employee",
+      choices: employeeNames,
+    },
+    {
+      type: "list",
+      name: "selectRole",
+      message: "Please select a role.",
+      choices: employeeRoles,
+    },
+    
+  ]);
+  console.log("WE ARE HERE");
+  return answer;
+};
+
+
 module.exports = {
   displayStartUpQ,
   displayAddDepartmentQ,
@@ -145,4 +166,5 @@ module.exports = {
   getDepartmentName,
   getRoleInfo,
   getEmployeeInfo,
+  getUpdateEmployeeInfo
 };
